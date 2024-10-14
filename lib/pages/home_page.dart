@@ -55,24 +55,24 @@ class _HomePageState extends State<HomePage> {
           child: Row(
             children: [
               Text('I want to ', style: TextStyle(fontSize: 25),),
-              Text('EAT', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, decoration: TextDecoration.underline),),
+              Text('SLEEP', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, decoration: TextDecoration.underline),),
             ],
           ),
         ),
           //Tab bar
           TabBar(tabs: myTabs),
           //Tab bar view
-            const Expanded(child: TabBarView(children: [
+            Expanded(child: TabBarView(children: [
               //Donut
               DonutTab(),
               //Burguer tab
-              BurgerTab(),
+              const BurgerTab(),
               //Somoothie Tab
-              SmoothieTab(),
+              const SmoothieTab(),
               //Pancake tab
-              PancakeTab(),
+              const PancakeTab(),
               //pizzatab
-              PizzaTab(),
+              const PizzaTab(),
 
             ]))
           //carrito
