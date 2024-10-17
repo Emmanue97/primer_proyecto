@@ -5,64 +5,87 @@ class DonutTile extends StatelessWidget {
   final String donutPrice;
   final dynamic donutColor;
   final String imageName;
-
-
-//valor fijo para el borde circular
   final double borderRadius = 24;
 
-
-  const DonutTile({super.key, required this.donutFlavor,
-   required this.donutPrice, this.donutColor,
-    required this.imageName});
+  const DonutTile(
+    {super.key,
+      required this.donutFlavor,
+      required this.donutPrice,
+      this.donutColor,
+      required this.imageName});
 
   @override
   Widget build(BuildContext context) {
     return Padding(padding: const EdgeInsets.all(12),
     child: Container(
-      decoration: BoxDecoration(color: donutColor[50],
-       borderRadius: BorderRadius.circular(borderRadius)),
-    child: Column(
-      children: [
+      decoration: BoxDecoration(color: donutColor[50], borderRadius: BorderRadius.circular(borderRadius)),
+      child: Column(
         //Donut price
-        Row(
+        children: [Row(
           mainAxisAlignment: MainAxisAlignment.end,
-          children: [Container(
-            decoration: BoxDecoration(
-              color: donutColor[100],
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(borderRadius),
-                bottomLeft: Radius.circular(borderRadius)
-              )),
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
-              child: Text('\$$donutPrice', 
-              style: 
-              TextStyle(fontWeight: FontWeight.bold,
-              fontSize: 18,
-              color: donutColor[800]),),
-          )],
-          
+          children: [
+          Container(
+            decoration: BoxDecoration(color: donutColor[100],
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(borderRadius),
+              bottomLeft: Radius.circular(borderRadius),
+            )),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+            child: Text('\$$donutPrice',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: donutColor[800]),
+            ),
+          )
+        ],
         ),
         //Donut picture
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
-         child: Image.asset(imageName), ),
-      //Donut flavor text
-      Padding(
-        padding: const EdgeInsets.only(bottom: 12),
-       child:  Text(donutFlavor, style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+          child: Image.asset(imageName),),
+        //Donut flavor text
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 4),
+          child: Text(donutFlavor, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: donutColor[1000])),
+        ),
+        const SizedBox(
+          height: 4,
+        ),
+        const Text('Dunkin\'s'),
+        //Love icon + add button
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Icon(Icons.favorite,color: Colors.pink[400],),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(),
+
+              child: const Text('ADD'),
+
+            ),
+            
+          ],
+          
+        ),
+        
+        
+
+        ],
+        
       ),
-      const Padding(
-        padding: EdgeInsets.only(bottom: 12),
-
-      child: Text('Dunkins', style: TextStyle(fontSize: 20),),
-      )
-
       
-      //Love icon + add button
-      ],
-      
-    ) ,
-    ),
-    );
-  }
+),);
+
+
 }
+
+}
+
+
+
+
+
+
+
+
+
+
